@@ -228,24 +228,31 @@ function renderSearchResults(movies) {
         moviesContainer.appendChild(movieCard);
     });
 }
-
-// Add to watchlist from search results
+// Unified addToWatchlist function to handle both searched and trending movies
 window.addToWatchlist = function(id) {
     const favList = JSON.parse(localStorage.getItem('favList')) || [];
-    
-    const isElementExists = favList.some(item => item.id === id);
-    
-    if (!isElementExists) {
-        const favElement = searchResults.find(item => item.id === id);
-        if (favElement) {
-            favList.push(favElement);
-            localStorage.setItem('favList', JSON.stringify(favList));
-            alert('Added to watchlist!');
-        } else {
-            alert('Movie not found!');
-        }
-    } else {
+
+    // Check if the movie is already in the watchlist
+    if (favList.some(item => item.id === id)) {
         alert('This movie is already in your watchlist');
+        return;
+    }
+
+    // Try to find the movie in searchResults first
+    let favElement = searchResults.find(item => item.id === id);
+
+    // If not found in searchResults, check moviesData (from trending.js)
+    if (!favElement) {
+        favElement = moviesData.find(item => item.id === id);
+    }
+
+    // If movie is found, add it to watchlist
+    if (favElement) {
+        favList.push(favElement);
+        localStorage.setItem('favList', JSON.stringify(favList));
+        alert('Added to watchlist!');
+    } else {
+        alert('Movie not found!');
     }
 };
 

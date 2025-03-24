@@ -41,7 +41,7 @@ async function fetchPopularMovies() {
 }
 
 // Add to watchlist function - make it globally accessible
-function addToWatchlist(id) {
+function addToWatchlistt(id) {
     const favList = JSON.parse(localStorage.getItem('favList')) || [];
   
     const isElementExists = favList.some(item => item.id == id);
@@ -53,7 +53,7 @@ function addToWatchlist(id) {
             localStorage.setItem('favList', JSON.stringify(favList));
             alert('Added to watchlist!');
         } else {
-            alert('Movie not found!');
+            alert('asMovie not found!');
         }
     } else {
         alert('This movie is already in your watchlist');
@@ -61,7 +61,7 @@ function addToWatchlist(id) {
 }
 
 // Make addToWatchlist available globally
-window.addToWatchlist = addToWatchlist;
+window.addToWatchlistt = addToWatchlistt;
 
 // Render movies list
 function renderMovies(movies) {
@@ -109,7 +109,7 @@ function renderMovies(movies) {
                 <div class="flex justify-between items-center mt-4">
                     <span class="text-gray-400 text-xs">${movie.release_date || 'Unknown'}</span>
                     <div class="flex space-x-2">
-                        <button onclick="addToWatchlist(${movie.id})" class="text-xs bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded-full">
+                        <button onclick="addToWatchlistt(${movie.id})" class="text-xs bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded-full">
                             + Watchlist
                         </button>
                         <a href="film_page.html?id=${movie.id}" class="text-xs bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-full flex items-center">
