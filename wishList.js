@@ -29,7 +29,7 @@ function showWatchlist() {
             <div class="text-center py-12">
                 <i class="fas fa-film text-4xl text-gray-500 mb-3"></i>
                 <p class="text-gray-300">Your watchlist is empty</p>
-                <a href="index.html" class="inline-block mt-4 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full">
+                <a href="https://film-trailers-by-atilla.vercel.app" class="inline-block mt-4 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full">
                     Browse Movies
                 </a>
             </div>
