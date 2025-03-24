@@ -83,7 +83,7 @@ function renderMovies(movies) {
                 <div class="flex justify-between items-center mt-4">
                     <span class="text-gray-400 text-xs">${movie.release_date || 'Unknown'}</span>
                     <div class="flex space-x-2">
-                        <button onclick="addToWatchlist(movie.id, movie.title, movie.poster_path, movie.vote_average, movie.overview, movie.release_date)" class="text-xs bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded-full">
+                        <button onclick="addToWatchlist(movie.id)" class="text-xs bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded-full">
                             + Watchlist
                         </button>
                         <a href="film_page.html?id=${movie.id}" class="text-xs bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-full flex items-center">
@@ -94,7 +94,7 @@ function renderMovies(movies) {
             </div>
         `;
 
-        function addFav(id) {
+        function addToWatchlist(id) {
             const favList = JSON.parse(localStorage.getItem('favList')) || []
           
             const isElementExists = favList.some(item => item.id == id)
