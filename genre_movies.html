@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation Bar -->
+    <nav class="relative z-20 bg-gradient-to-r from-black/90 to-black/70 backdrop-blur-sm border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <h1 class="text-2xl font-bold">
+                <a href="index.html" class="text-red-600">Film</a><a href="index.html" class="text-white">Trailers</a>
+              </h1>
+            </div>
+            <div class="hidden lg:block">
+              <div class="ml-10 flex items-baseline space-x-6">
+                <a href="index.html" class="relative px-3 py-2 rounded-md text-sm font-medium text-white group">
+                  <span class="absolute inset-x-0 bottom-0 h-0.5 bg-red-600 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100"></span>
+                  <i class="fas fa-home mr-2"></i>Home
+                </a>
+                <a href="genres.html" class="relative px-3 py-2 rounded-md text-sm font-medium text-gray-300 group hover:text-white">
+                  <span class="absolute inset-x-0 bottom-0 h-0.5 bg-red-600 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100"></span>
+                  <i class="fas fa-film mr-2"></i>Genres
+                </a>
+                <a href="wishlist.html" class="relative px-3 py-2 rounded-md text-sm font-medium text-gray-300 group hover:text-white">
+                  <span class="absolute inset-x-0 bottom-0 h-0.5 bg-red-600 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100"></span>
+                  <i class="fas fa-info-circle mr-2"></i>Wishlist
+                </a>
+                <a href="contact.html" class="relative px-3 py-2 rounded-md text-sm font-medium text-gray-300 group hover:text-white">
+                  <span class="absolute inset-x-0 bottom-0 h-0.5 bg-red-600 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100"></span>
+                  <i class="fas fa-envelope mr-2"></i>Contact
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="hidden lg:block">
+            <div class="ml-4 flex items-center md:ml-6">
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <i class="fas fa-search text-gray-400"></i>
+                </div>
+                <input type="text" placeholder="Search for films..." class="bg-gray-900/80 text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 w-64">
+              </div>
+              <div class="ml-4">
+                <button class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-lg font-medium transition-colors duration-200">Sign In</button>
+              </div>
+            </div>
+          </div>
+          <div class="flex lg:hidden">
+            <button id="navbar-toggle" class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="navbar-menu" class="hidden lg:hidden">
+          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="test.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-600/20 border-l-4 border-red-600"><i class="fas fa-home mr-2"></i>Home</a>
+            <a href="genres.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-red-600/20 hover:text-white border-l-4 border-transparent hover:border-red-600"><i class="fas fa-film mr-2"></i>Genres</a>
+            <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-red-600/20 hover:text-white border-l-4 border-transparent hover:border-red-600"><i class="fas fa-info-circle mr-2"></i>About</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-red-600/20 hover:text-white border-l-4 border-transparent hover:border-red-600"><i class="fas fa-envelope mr-2"></i>Contact</a>
+          </div>
+          <div class="pt-4 pb-3 border-t border-gray-800">
+            <div class="flex items-center px-5">
+              <div class="relative w-full">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <i class="fas fa-search text-gray-400"></i>
+                </div>
+                <input type="text" placeholder="Search for films..." class="w-full bg-gray-900 text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600">
+              </div>
+            </div>
+            <div class="mt-3 px-2">
+              <button class="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">Sign In</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container mx-auto px-4 py-6">
+        <div id="movies" class="flex flex-wrap justify-between items-center"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const genreId = urlParams.get('id');
+    const apiKey = 'd8972914c7508d0355cce580a7e5910d';
+    
+    // Store genres list globally
+    let genreList = [];
+
+    try {
+        const genresResponse = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`);
+        const genresData = await genresResponse.json();
+        genreList = genresData.genres; // Storing genres list
+    } catch (error) {
+        console.error("Error fetching genres:", error);
+    }
+
+    if (genreId) {
+        const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}`;
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            const movies = data.results;
+            const movieContainer = document.getElementById("movies");
+
+            movies.forEach(movie => {
+                const rating = movie.vote_average.toFixed(1);
+                const overview = movie.overview.substring(0, 100) + '...';
+                const posterPath = movie.poster_path ? `https://image.tmdb.org/t/p/w780${movie.poster_path}` : 'https://via.placeholder.com/300x450';
+                
+                // Get genres names by mapping genre ids
+                const movieGenres = getGenresByIds(movie.genre_ids, genreList);
+
+                const movieCard = document.createElement("div");
+                movieCard.className = "w-full md:w-[350px] p-4";
+                movieCard.innerHTML = `
+                    <div class="bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+                        <div class="relative">
+                            <img class="w-full h-96 object-contain" src="${posterPath}" alt="${movie.title}">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                            ${movie.release_date && new Date(movie.release_date) > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) ? 
+                                '<div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">NEW</div>' : ''}
+                            <button class="absolute inset-0 m-auto w-12 h-12 flex items-center justify-center bg-red-600/80 hover:bg-red-600 text-white rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-white">${movie.title}</h3>
+                                <span class="text-yellow-500 flex items-center text-sm">
+                                    <i class="fas fa-star mr-1"></i>${rating}
+                                </span>
+                            </div>
+                            <p class="text-gray-400 text-sm mt-1">${movieGenres}</p>
+                            <p class="text-gray-300 text-sm mt-2 line-clamp-2">${overview}</p>
+                            <div class="flex justify-between items-center mt-4">
+                                <span class="text-gray-400 text-xs">${movie.release_date || 'Unknown'}</span>
+                                <div class="flex space-x-2">
+                                    <button class="text-xs bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded-full">
+                                        + Watchlist
+                                    </button>
+                                    <a href="film_page.html?id=${movie.id}" class="text-xs bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-full flex items-center">
+                                        <i class="fas fa-play-circle mr-1"></i> Trailer
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                movieContainer.appendChild(movieCard);
+            });
+        } catch (error) {
+            console.error("Error fetching movies:", error);
+        }
+    }
+});
+
+// Function to map genre ids to genre names
+function getGenresByIds(genreIds, genreList) {
+    if (!genreIds || genreIds.length === 0) return 'Unknown Genre';
+
+    // Map genre ids to their names
+    const genreNames = genreIds
+        .map(id => {
+            const genre = genreList.find(g => g.id === id);
+            return genre ? genre.name : null;
+        })
+        .filter(Boolean); // Remove any null values
+    
+    return genreNames.length > 0 ? genreNames.join(', ') : 'Unknown Genre';
+}
+
+    </script>
+</body>
+</html>
