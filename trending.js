@@ -5,6 +5,8 @@ const moviesContainer = document.getElementById('movies-container');
 
 // Store genres list globally
 let genreList = [];
+// Store movies data globally to access in addToWatchlist
+let moviesData = [];
 
 // Fetch genre list
 async function fetchGenres() {
@@ -25,6 +27,7 @@ async function fetchPopularMovies() {
         const data = await response.json();
 
         if (data.results && data.results.length > 0) {
+            moviesData = data.results; // Store movies data globally
             renderMovies(data.results);
         } else {
             showError('No movies found');
@@ -36,6 +39,29 @@ async function fetchPopularMovies() {
         hideLoading();
     }
 }
+
+// Add to watchlist function - make it globally accessible
+function addToWatchlist(id) {
+    const favList = JSON.parse(localStorage.getItem('favList')) || [];
+  
+    const isElementExists = favList.some(item => item.id == id);
+  
+    if (!isElementExists) {
+        const favElement = moviesData.find(item => item.id == id);
+        if (favElement) {
+            favList.push(favElement);
+            localStorage.setItem('favList', JSON.stringify(favList));
+            alert('Added to watchlist!');
+        } else {
+            alert('Movie not found!');
+        }
+    } else {
+        alert('This movie is already in your watchlist');
+    }
+}
+
+// Make addToWatchlist available globally
+window.addToWatchlist = addToWatchlist;
 
 // Render movies list
 function renderMovies(movies) {
@@ -83,7 +109,7 @@ function renderMovies(movies) {
                 <div class="flex justify-between items-center mt-4">
                     <span class="text-gray-400 text-xs">${movie.release_date || 'Unknown'}</span>
                     <div class="flex space-x-2">
-                        <button onclick="addToWatchlist(movie.id)" class="text-xs bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded-full">
+                        <button onclick="addToWatchlist(${movie.id})" class="text-xs bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded-full">
                             + Watchlist
                         </button>
                         <a href="film_page.html?id=${movie.id}" class="text-xs bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-full flex items-center">
@@ -93,19 +119,6 @@ function renderMovies(movies) {
                 </div>
             </div>
         `;
-
-        function addToWatchlist(id) {
-            const favList = JSON.parse(localStorage.getItem('favList')) || []
-          
-            const isElementExists = favList.some(item => item.id == id)
-          
-            if (!isElementExists) {
-                const favElement = movie.find(item => item.id == id)
-                favList.push(favElement)
-                localStorage.setItem('favList', JSON.stringify(favList))
-            } else alert('this element is already exist in FavList')
-          }
-
         moviesContainer.appendChild(movieCard);
     });
 }
